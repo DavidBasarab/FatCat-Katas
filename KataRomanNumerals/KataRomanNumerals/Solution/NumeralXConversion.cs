@@ -2,6 +2,11 @@
 {
     internal class NumeralXConversion : BaseDigitConversion
     {
+        public static int Value
+        {
+            get { return 10; }
+        }
+
         public static int Convert(string digit)
         {
             var conversion = new NumeralXConversion(digit);
@@ -14,14 +19,24 @@
 
         private int XValue
         {
-            get { return Digit.Count('X')*10; }
+            get { return Digit.Count('X') * Value; }
         }
 
         protected override int Convert()
         {
-            if (ContainsV) return XValue + NumeralVConversion.Convert(Digit.Remove("X"));
+            if (DoesNotStartWithX()) return XValue - FindValueWithoutX();
 
-            return XValue + NumeralIConversion.Convert(Digit.Remove("X"));
+            return XValue + FindValueWithoutX();
+        }
+
+        private bool DoesNotStartWithX()
+        {
+            return !Digit.StartsWith("X");
+        }
+
+        private int FindValueWithoutX()
+        {
+            return RomanDigitConversion.ConvertDigit(Digit.Remove("X"));
         }
     }
 }

@@ -43,6 +43,7 @@
     <Compile Include="BaseDigitConversion.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="NumeralIConversion.cs" />
+    <Compile Include="NumeralLConversion.cs" />
     <Compile Include="NumeralVConversion.cs" />
     <Compile Include="NumeralXConversion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,6 +19,11 @@
             get { return Digit.ToUpper().Contains("V"); }
         }
 
+        protected bool ContainsX
+        {
+            get { return Digit.ToUpper().Contains("X"); }
+        }
+
         protected abstract int Convert();
     }
 }

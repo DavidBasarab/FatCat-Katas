@@ -12,13 +12,15 @@
         private RomanDigitConversion(string digit)
             : base(digit) {}
 
-        private bool ContainsX
+        public bool ContainsL
         {
-            get { return Digit.ToUpper().Contains("X"); }
+            get { return Digit.ToUpper().Contains("L"); }
         }
 
         protected override int Convert()
         {
+            if (ContainsL) return NumeralLConversion.Convert(Digit);
+
             if (ContainsX) return NumeralXConversion.Convert(Digit);
 
             if (ContainsV) return NumeralVConversion.Convert(Digit);
